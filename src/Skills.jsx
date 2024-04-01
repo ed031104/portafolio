@@ -1,4 +1,4 @@
-import { FaJava, FaGitAlt } from "react-icons/fa";
+import { FaJava, FaGitAlt, FaReact  } from "react-icons/fa";
 import {
   SiSpring,
   SiJavascript,
@@ -6,23 +6,30 @@ import {
   SiDotnet,
   SiMysql,
   SiNodedotjs,
+  SiPostman ,
+  SiExpress ,
+  SiMongodb ,
 } from "react-icons/si";
 
 function Skills() {
   return (
-    <div className=" m-10 shadow-2xl rounded-lg  ">
-      <h1 className="text-white text-4xl font-bold text-center p-16 ">
+    <div className=" m-10 py-28 md:py-28 lg:py-38 shadow-2xl shadow-black rounded-lg  ">
+      <h1 className="text-white text-4xl font-bold text-center p-2 ">
         Tecnologías y Habilidades
       </h1>
       <div className="p-10 grid-cols-4 gap-4 grid place-items-center space-x-5 space-y-10  ">
-        <FaJava className="text-red-400 text-5xl sm:text-7xl md:text-8xl" />
-        <SiSpring className="text-green-400 text-5xl sm:text-7xl md:text-8xl" />
-        <SiJavascript className="text-yellow-400 text-5xl sm:text-7xl md:text-8xl" />
-        <SiCsharp className="text-blue-400 text-5xl sm:text-7xl md:text-8xl" />
-        <SiDotnet className="text-purple-400 text-5xl sm:text-7xl md:text-8xl" />
-        <FaGitAlt className="text-orange-400 text-5xl sm:text-7xl md:text-8xl" />
-        <SiMysql className="text-blue-400 text-5xl sm:text-7xl md:text-8xl" />
-        <SiNodedotjs className="text-green-400 text-5xl sm:text-7xl md:text-8xl" />
+        <FaJava className="transition duration-300 ease-in-out transform hover:scale-110 text-red-400 text-5xl sm:text-7xl md:text-8xl"/>
+        <SiSpring className="transition duration-300 ease-in-out transform hover:scale-110 text-green-400 text-5xl sm:text-7xl md:text-8xl" />
+        <SiJavascript className="transition duration-300 ease-in-out transform hover:scale-110 text-yellow-400 text-5xl sm:text-7xl md:text-8xl" />
+        <SiCsharp className="transition duration-300 ease-in-out transform hover:scale-110 text-blue-400 text-5xl sm:text-7xl md:text-8xl" />
+        <SiDotnet className="transition duration-300 ease-in-out transform hover:scale-110 text-purple-400 text-5xl sm:text-7xl md:text-8xl" />
+        <FaGitAlt className="transition duration-300 ease-in-out transform hover:scale-110 text-orange-400 text-5xl sm:text-7xl md:text-8xl" />
+        <SiMysql className="transition duration-300 ease-in-out transform hover:scale-110 text-blue-400 text-5xl sm:text-7xl md:text-8xl" />
+        <SiNodedotjs className="transition duration-300 ease-in-out transform hover:scale-110 text-green-400 text-5xl sm:text-7xl md:text-8xl" />
+        <FaReact className="transition duration-300 ease-in-out transform hover:scale-110 text-blue-400 text-5xl sm:text-7xl md:text-8xl" />
+        <SiPostman className="transition duration-300 ease-in-out transform hover:scale-110 text-orange-400 text-5xl sm:text-7xl md:text-8xl" />
+        <SiExpress className="transition duration-300 ease-in-out transform hover:scale-110 text-slate-400 text-5xl sm:text-7xl md:text-8xl" />
+        <SiMongodb className="transition duration-300 ease-in-out transform hover:scale-110 text-green-400 text-5xl sm:text-7xl md:text-8xl" />
       </div>
     </div>
   );
