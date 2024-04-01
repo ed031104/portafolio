@@ -1,3 +1,5 @@
+import avatar from "/avatar.png";
+
 function Presentacion() {
   return (
     <section className="w-full py-28 md:py-28 lg:py-48 flex justify-center ">
@@ -22,7 +24,7 @@ function Presentacion() {
         <img
           className="mx-auto aspect-square overflow-hidden rounded-full object-cover object-center border-2 border-white"
           height="400"
-          src="/src/assets/avatar.png"
+          src= {avatar}
           width="400"
         />
       </div>
