@@ -39,7 +39,7 @@ function Project() {
 
       {ishovered && (
         
-        <div className="absolute grid  inset-0 bg-slate-900 bg-opacity-50 content-center  p-20  ">
+        <div className="absolute flex flex-row justify-center items-center  inset-0 bg-slate-900 bg-opacity-50 content-center">
           
           <button className=" bg-white  opacity-90 text-slate-600 font-bold px-4 py-2 rounded-lg ">
             Ver más
