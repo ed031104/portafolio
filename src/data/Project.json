@@ -1,0 +1,52 @@
+[
+  {
+    "id": 1,
+    "Name": "Sistema de nomina, inventario y ventas",
+    "Description": "Este sistema fue desarrollado para la empresa de mi padre, el cual se encarga de llevar el control de los empleados, inventario y ventas de la empresa. Este sistema fue desarrollado con el fin de llevar un control mas detallado de los empleados, inventario y ventas de la empresa. Este sistema fue desarrollado con el fin de llevar un control mas detallado de los empleados, inventario y ventas de la empresa. Este sistema fue desarrollado con el fin de llevar un control mas detallado de los empleados, inventario y ventas de la empresa. Este sistema fue desarrollado con el fin de llevar un control mas detallado de los empleados, inventario y ventas de la empresa. Este sistema fue desarrollado con el fin de llevar un control mas detallado de los empleados, inventario y ventas de la empresa. Este sistema fue desarrollado con el fin de llevar un control mas detallado de los empleados, inventario y ventas de la empresa. Este sistema fue desarrollado con el fin de llevar un control mas detallado de los empleados, inventario y ventas de la empresa. Este sistema fue desarrollado con el fin de llevar un control mas detallado de los empleados, inventario y ventas de la empresa.",
+    "image": [
+      "https://www.w3schools.com/w3images/avatar2.png",
+      "https://www.w3schools.com/w3images/avatar2.png",
+      "https://www.w3schools.com/w3images/avatar2.png",
+      "https://www.w3schools.com/w3images/avatar2.png"
+    ],
+    "skills": ["HTML", "CSS", "JavaScript", "React", "NodeJS", "MongoDB"],
+    "repository": "https://github.com/ed031104/portafolio.git"
+  },
+  {
+    "id": 2,
+    "Name": "John Doe",
+    "Description": "John Doe is a web developer",
+    "image": [
+      "https://www.w3schools.com/w3images/avatar2.png",
+      "https://www.w3schools.com/w3images/avatar2.png",
+      "https://www.w3schools.com/w3images/avatar2.png",
+      "https://www.w3schools.com/w3images/avatar2.png"
+    ],
+    "skills": ["HTML", "CSS", "JavaScript", "React", "NodeJS", "MongoDB"],
+    "repository": "https://github.com/ed031104/portafolio.git"
+  },{
+    "id": 1,
+    "Name": "John Doe",
+    "Description": "John Doe is a web developer",
+    "image": [
+      "https://www.w3schools.com/w3images/avatar2.png",
+      "https://www.w3schools.com/w3images/avatar2.png",
+      "https://www.w3schools.com/w3images/avatar2.png",
+      "https://www.w3schools.com/w3images/avatar2.png"
+    ],
+    "skills": ["HTML", "CSS", "JavaScript", "React", "NodeJS", "MongoDB"],
+    "repository": "https://github.com/ed031104/portafolio.git"
+  },{
+    "id": 1,
+    "Name": "John Doe",
+    "Description": "John Doe is a web developer",
+    "image": [
+      "https://www.w3schools.com/w3images/avatar2.png",
+      "https://www.w3schools.com/w3images/avatar2.png",
+      "https://www.w3schools.com/w3images/avatar2.png",
+      "https://www.w3schools.com/w3images/avatar2.png"
+    ],
+    "skills": ["HTML", "CSS", "JavaScript", "React", "NodeJS", "MongoDB"],
+    "repository": "https://github.com/ed031104/portafolio.git"
+  }
+]
