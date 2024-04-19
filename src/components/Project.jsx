@@ -49,7 +49,7 @@ function Project() {
         <div className="fixed flex flex-row justify-center items-center   inset-0 bg-slate-800 bg-opacity-40 z-10">
           <div className="absolute inset-0 bg-slate-900 backdrop-filter backdrop-blur-2xl  opacity-60"></div>
       
-          <button className=" bg-purple-950  opacity-90 text-white/50 font-bold px-4 py-2 rounded-lg ">
+          <button className=" bg-purple-950  opacity-90 text-white font-bold px-4 py-2 rounded-lg ">
             Ver más
           </button>
         </div>

@@ -18,7 +18,6 @@ import {
   SiExpress,
   SiMongodb,
 } from "react-icons/si";
-import avatar from "./static/avatar.png";
 import fotoPerfil from "./static/fotoPerfil.png";
 import Footer from "./components/Footer";
 import Project from "./components/Project";
@@ -35,44 +34,48 @@ export function App() {
   const scrollSkills = () => scrollTosection("tecnologias");
   const scrollProject = () => scrollTosection("Proyectos");
   const scrollMain = () => scrollTosection("inicio");
+  const scrollAbout = () => scrollTosection("sobre mi");
 
   return (
     <>
       <header id="inicio">
-        <NavBar scrollProject={scrollProject} scrollSkilss={scrollSkills} />
+        <NavBar scrollProject={scrollProject} scrollSkilss={scrollSkills} scrollAbout={scrollAbout} />
       </header>
-      <main className=" bg-gradient-to-r from-slate-900 to-slate-950 ">  
-        <section className="flex flex-col mx-auto my-auto" >
-          <article className="flex flex-col   ">
 
-          <div className="flex flex-col">
-          <div className="mx-auto my-auto h-auto w-auto grid grid-flow-col grid-rows-2 grid-cols-3 gap-10 animate-pulse  ">
+      <main className=" bg-gradient-to-r from-slate-900 to-slate-950 ">  
+       <div className="container mx-auto pt-20">
+
+        <section className="flex flex-row">
+        <div className=" mx-auto  flex flex-col  gap-unit-4xl mt-16 lg:flex-row lg:py-36 lg:gap-unit-7xl  ">
+
+          <div className="mx-auto grid grid-flow-col grid-rows-2 grid-cols-3 gap-10 place-items-start animate-pulse">
               <div className="transform scale-110 -rotate-6">
-                <FaJava  className="   transition duration-300 ease-in-out transform hover:scale-110 text-red-400 text-5xl sm:text-7xl md:text-8xl" />
+                <FaJava  className="   transition duration-300 ease-in-out transform hover:scale-110 text-red-400 text-7xl sm:text-8xl " />
               </div>
               <div className="col-start-3 transform scale-75 rotate-6 translate-x-2 translate-y-15">
-                <FaReact  className="   transition duration-300 ease-in-out transform hover:scale-110 text-blue-600 text-5xl sm:text-7xl md:text-8xl" />
+                <FaReact  className="   transition duration-300 ease-in-out transform hover:scale-110 text-blue-600 text-7xl sm:text-8xl " />
               </div>
               <div className="transform  translate-y-11">
-              <SiSpring className="   transition duration-300 ease-in-out transform hover:scale-110 text-green-400 text-5xl sm:text-7xl md:text-8xl" />
+              <SiSpring className="   transition duration-300 ease-in-out transform hover:scale-110 text-green-400 text-7xl sm:text-8xl " />
               </div>
               <div className="transform translate-y-24">
-              <SiMysql className="transition duration-300 ease-in-out transform hover:scale-110 text-blue-400 text-5xl sm:text-7xl md:text-8xl" />
+              <SiMysql className="transition duration-300 ease-in-out transform hover:scale-110 text-blue-400 text-7xl sm:text-8xl " />
               </div> 
               <div className="row-start-1 col-start-2 col-span-2 transform translate-x-20 translate-y-4">
-              <SiCsharp className="transition duration-300 ease-in-out transform hover:scale-110 text-purple-600 text-5xl sm:text-7xl md:text-8xl" />
+              <SiCsharp className="transition duration-300 ease-in-out transform hover:scale-110 text-purple-600 text-7xl sm:text-8xl " />
               </div>            
             </div>
-            </div>
+         
 
-            <div className="flex flex-col justify-center items-center">
-              <h1 className="text-6xl tracking-tighter sm:text-7xl md:text-7xl text-transparent bg-clip-text font-bold  bg-gradient-to-r from-blue-200 to-blue-800/50 ">
+            <div className="flex flex-col justify-center  mt-14">
+              <h1 className="text-6xl tracking-tighter sm:text-7xl md:text-7xl text-transparent bg-clip-text font-bold  bg-gradient-to-r
+               from-blue-200 to-blue-800/50 ">
                 Edwin Dávila
               </h1>
               <p className="text-gray-400 text-center text-xl md:text-xl lg:text-2xl lg:text-left  dark:text-gray-400">
                 Desarrollador Backend.
               </p>
-              <div className="flex justify-center lg:justify-start">
+              <div className="flex justify-center lg:justify-start ">
                 <a
                   href="https://www.linkedin.com/in/edwin-antonio-d%C3%A1vila-osorio-527877267/"
                   className="text-2xl text-gray-400 hover:text-gray-100 bg-gray-700 rounded-full p-2 m-2"
@@ -93,13 +96,11 @@ export function App() {
                 </a>
               </div>
             </div>
-            
-            
-          </article>
+          </div>
         </section>
 
-        <section className=" border-purple-900/20 rounded-2xl border-solid  p-10">
-          <article className="flex flex-col justify-around gap-20 lg:flex-row">
+        <section id="sobre mi" className=" border-purple-900/20 rounded-2xl border-solid  p-10 mt-24">
+          <article className="flex flex-col justify-center gap-20 lg:flex-row">
             <div className="flex justify-center items-center">
               <span className="flex bg-slate-800 h-50 w-50 rounded-full ">
                 <img
@@ -108,8 +109,8 @@ export function App() {
                 />
               </span>
             </div >
-            <div className="flex flex-col gap-10  justify-center items-center lg:it">
-              <h2 className="text-purple-50 font-semibold text-4xl">
+            <div className="flex flex-col gap-10  justify-center items-center lg:items-start">
+              <h2 className="text-purple-50 font-semibold text-4xl text-center">
                 👋 Hola, soy Edwin Dávila
               </h2>
               <p className="text-white ">
@@ -130,7 +131,7 @@ export function App() {
           </article>
         </section>
 
-        <section id="tecnologias">
+        <section id="tecnologias" className="mt-24">
           <div className="flex flex-col gap-16 m-10 py-10 justify-center shadow-2xl shadow-black rounded-lg over  ">
             <h1 className="text-white text-4xl font-bold text-center p-2 ">
               Tecnologías y Habilidades
@@ -152,7 +153,7 @@ export function App() {
           </div>
         </section>
         <section id="Proyectos">
-          <div className=" p-10 py-56 ">
+          <div className=" p-10  mt-24 ">
             <h1 className=" text-white text-center text-4xl font-bold ">
               Proyectos
             </h1>
@@ -164,7 +165,7 @@ export function App() {
           </div>
         </section>
 
-        <section>
+        <section className="mt-24">
         <div className="flex justify-center  p-10">
           <button
             className="flex justify-center items-center shadow-2xl shadow-purple-600 bg-slate-900 h-16 w-16 rounded-full animate-bounce "
@@ -174,6 +175,7 @@ export function App() {
           </button>
         </div>
         </section>
+        </div>
       </main>
       <Footer />
     </>

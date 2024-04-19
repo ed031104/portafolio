@@ -8,7 +8,7 @@ import {
   Button,
 } from "@nextui-org/react";
 
-const NavBar = ({ scrollProject, scrollSkilss }) => {
+const NavBar = ({ scrollProject, scrollSkilss , scrollAbout }) => {
   return (
       <Navbar className="fixed bg-indigo-950/5  shadow-2xl shadow-blue-950"  >
       <NavbarBrand >
@@ -28,7 +28,7 @@ const NavBar = ({ scrollProject, scrollSkilss }) => {
         </NavbarItem>
         <NavbarItem isActive>
           <Link
-            /*onClick={() => handleClick("tecnologias")}*/
+            onClick={() => scrollAbout("tecnologias")}
             href="#"
             aria-current="page"
             className="text-indigo-700"
