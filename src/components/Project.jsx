@@ -2,6 +2,8 @@ import { Card, CardHeader, CardBody,  Chip, Image } from "@nextui-org/react";
 import { useState } from "react";
 import { FaJava, FaReact  } from "react-icons/fa";
 import  avatar  from "../static/nomina.png";
+import { Link , BrowserRouter} from "react-router-dom"
+import { ProjectPages } from "../../projects/ProjectsPage";
 import {
   SiMysql
 } from "react-icons/si";
@@ -11,7 +13,10 @@ function Project() {
 
   const [ishovered, setIshovered] = useState(false);
 
+
+
   return (
+    
     <Card  className="  overflow-hidden transition duration-300 ease-in-out
      transform py-4 hover:scale-105 hover:shadow-2xl hover:shadow-purple-600
       bg-gray-900 p-4 rounded-2xl shadow-2xl shadow-black "
@@ -49,7 +54,8 @@ function Project() {
         <div className="fixed flex flex-row justify-center items-center   inset-0 bg-slate-800 bg-opacity-40 z-10">
           <div className="absolute inset-0 bg-slate-900 backdrop-filter backdrop-blur-2xl  opacity-60"></div>
       
-          <button className=" bg-purple-950  opacity-90 text-white font-bold px-4 py-2 rounded-lg ">
+          <button  className=" bg-purple-950  opacity-90 text-white font-bold px-4 py-2 rounded-lg ">
+            <link to="#"  />
             Ver más
           </button>
         </div>

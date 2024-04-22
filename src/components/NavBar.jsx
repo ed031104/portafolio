@@ -8,7 +8,19 @@ import {
   Button,
 } from "@nextui-org/react";
 
-const NavBar = ({ scrollProject, scrollSkilss , scrollAbout }) => {
+const NavBar = () => {
+
+  const scrollTosection = (id) => {
+    const section = document.getElementById(id);
+    if (section) {
+      event.preventDefault();
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+  const scrollSkills = () => scrollTosection("tecnologias");
+  const scrollProject = () => scrollTosection("Proyectos");
+  const scrollAbout = () => scrollTosection("sobre mi");
+
   return (
       <Navbar className="fixed bg-indigo-950/5  shadow-2xl shadow-blue-950"  >
       <NavbarBrand >
@@ -18,7 +30,7 @@ const NavBar = ({ scrollProject, scrollSkilss , scrollAbout }) => {
       <NavbarContent className="hidden sm:flex gap-4" justify="center">
         <NavbarItem >
           <Link
-            onClick={() => scrollSkilss("tecnologias")}
+            onClick={() => scrollSkills("tecnologias")}
             color="foreground"
             href="#"
             className="text-white"
