@@ -134,7 +134,7 @@ export function App() {
         </section>
 
 
-        <section id="tecnologias" className=" ">
+        <section id="tecnologias" className="mt-32 ">
           <div className=" h-auto flex flex-col gap-16 m-10 py-10 justify-center shadow-2xl shadow-black rounded-lg over  ">
             <h1 className="text-white text-4xl font-bold text-center p-2 ">
               Tecnologías y Habilidades
@@ -156,7 +156,7 @@ export function App() {
           </div>
         </section>
 
-        <section id="Proyectos" >
+        <section id="Proyectos" className="pt-24" >
           <div className="h-auto flex items-center justify-center ">
           <div className="p-10 lg:flex-row justify-center items-center">
             <h1 className=" text-white text-center text-4xl font-bold ">
@@ -176,7 +176,7 @@ export function App() {
 
       </main>
 
-      <div className=" flex justify-center  p-10">
+      <div className=" flex justify-center pt-24 p-10">
             <button
               className="flex justify-center items-center shadow-2xl shadow-purple-600 bg-slate-900 h-16 w-16 rounded-full animate-bounce "
               onClick={scrollMain}
