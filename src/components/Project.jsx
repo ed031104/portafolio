@@ -2,11 +2,7 @@ import { Card, CardHeader, CardBody,  Chip, Image } from "@nextui-org/react";
 import { useState } from "react";
 import { FaJava, FaReact  } from "react-icons/fa";
 import  avatar  from "../static/nomina.png";
-import { Link , BrowserRouter} from "react-router-dom"
-import { ProjectPages } from "../../projects/ProjectsPage";
-import {
-  SiMysql
-} from "react-icons/si";
+import { SiMysql } from "react-icons/si";
 
 
 function Project() {
@@ -54,14 +50,14 @@ function Project() {
         <div className="fixed flex flex-row justify-center items-center   inset-0 bg-slate-800 bg-opacity-40 z-10">
           <div className="absolute inset-0 bg-slate-900 backdrop-filter backdrop-blur-2xl  opacity-60"></div>
       
-          <button  className=" bg-purple-950  opacity-90 text-white font-bold px-4 py-2 rounded-lg ">
-            <link to="#"  />
+          <a href="/projects" className=" bg-purple-950  opacity-90 text-white font-bold px-4 py-2 rounded-lg ">
             Ver más
-          </button>
+          </a>
         </div>
       ) }
 
     </Card>
+
   );
 }
 

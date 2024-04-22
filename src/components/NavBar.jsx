@@ -1,4 +1,4 @@
-import Logo from "/src/components/Logo.jsx";
+import Logo from "./Logo";
 import {
   Navbar,
   NavbarBrand,
