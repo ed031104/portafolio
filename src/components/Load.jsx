@@ -1,8 +1,8 @@
 
 export function Load(){
     return(
-        <div>
-            <h1>Loading...</h1>
+        <div className="h-dvh bg-slate-800">
+            <h1 className="text-white">Loading...</h1>
         </div>
     );
 }

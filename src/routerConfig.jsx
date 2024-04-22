@@ -4,14 +4,14 @@ import { Home , Project, ErrorPage} from "./pages";
 export const routes = [
     {
         path: '/',
-        Component: <Home/>
+        element: <Home/>
     },
     {
         path : '/Projects',
-        Component: <Project/>    
+        element: <Project/>    
     },
     {
         path: '*',
-        Component: <ErrorPage/>
+        element: <ErrorPage/>
     },
 ]
