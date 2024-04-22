@@ -39,7 +39,7 @@ export function App() {
         <NavBar />
       </header>
 
-      <main className="">
+      <main className="bg-gradient-to-r from-slate-900 to-slate-950">
 
         <section>
           <div className="h-dvh flex flex-col  justify-around py-16 items-center lg:flex-row">
@@ -88,9 +88,9 @@ export function App() {
                     <FaGithub />
                   </a>
                   <a
-                    href="./static/cv.pdf"
+                    href="/src/static/cv.pdf"
                     className="text-2xl text-gray-400 hover:text-gray-100 bg-gray-700 rounded-full p-2 m-2"
-                    download={"cv.pdf"}
+                    download={"cv"}
                   >
                     <FaFilePdf />
                   </a>
@@ -99,6 +99,7 @@ export function App() {
             </div>
           </div>
         </section>
+
 
         <section id="sobre mi">
           <article className="h-dvh flex flex-col justify-around gap-20 lg:flex-row ">
@@ -110,11 +111,11 @@ export function App() {
                 />
               </span>
             </div>
-            <div className="flex flex-col gap-10  justify-center items-center lg:items-start">
+            <div className="flex flex-col gap-8  justify-center items-center lg:items-start">
               <h2 className="text-purple-50 font-semibold text-4xl text-center">
                 👋 Hola, soy Edwin Dávila
               </h2>
-              <p className="text-white ">
+              <p className="text-white text-center">
                 Soy desarrollador backend con experiencia en Java con Spring
                 framework{" "}
               </p>
@@ -131,6 +132,7 @@ export function App() {
             </div>
           </article>
         </section>
+
 
         <section id="tecnologias" className=" ">
           <div className=" h-auto flex flex-col gap-16 m-10 py-10 justify-center shadow-2xl shadow-black rounded-lg over  ">
@@ -166,24 +168,14 @@ export function App() {
               <Project />
               <Project />
               <Project />
-              <Project />
-              <Project />
-              <Project />
-              <Project />
-              <Project />
-              <Project />
-              <Project />
-              <Project />
 
             </div>
           </div>
           </div>
         </section>
 
-        <section className="">
-          
-        </section>
       </main>
+
       <div className=" flex justify-center  p-10">
             <button
               className="flex justify-center items-center shadow-2xl shadow-purple-600 bg-slate-900 h-16 w-16 rounded-full animate-bounce "
