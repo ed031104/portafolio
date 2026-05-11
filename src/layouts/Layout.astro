@@ -1,0 +1,75 @@
+---
+import '../styles/global.css';
+import BottomDock from '../components/BottomDock.astro';
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es" class="overflow-x-hidden">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>{title}</title>
+  </head>
+  <body>
+    <slot />
+    <BottomDock />
+  </body>
+</html>
+
+<script>
+  function getTheme() {
+    return localStorage.getItem('theme') || 'dark';
+  }
+
+  function setTheme(theme) {
+    localStorage.setItem('theme', theme);
+
+    const root = document.documentElement;
+    const body = document.body;
+
+    if (theme === 'light') {
+      root.style.setProperty('--color-background', '#fafafa');
+      root.style.setProperty('--color-foreground', '#09090b');
+      root.style.setProperty('--color-border', '#e4e4e7');
+      root.style.setProperty('--color-secondary', '#f4f4f5');
+      root.style.setProperty('--color-muted', '#f1f1f3');
+      root.style.setProperty('--color-muted-foreground', '#71717a');
+      body.style.backgroundColor = '#fafafa';
+      body.style.color = '#09090b';
+      document.querySelectorAll('.theme-icon-sun').forEach(el => el.classList.remove('hidden'));
+      document.querySelectorAll('.theme-icon-moon').forEach(el => el.classList.add('hidden'));
+    } else {
+      root.style.setProperty('--color-background', '#050505');
+      root.style.setProperty('--color-foreground', '#ffffff');
+      root.style.setProperty('--color-border', '#27272a');
+      root.style.setProperty('--color-secondary', '#18181b');
+      root.style.setProperty('--color-muted', '#1f1f22');
+      root.style.setProperty('--color-muted-foreground', '#a1a1aa');
+      body.style.backgroundColor = '#050505';
+      body.style.color = '#ffffff';
+      document.querySelectorAll('.theme-icon-sun').forEach(el => el.classList.add('hidden'));
+      document.querySelectorAll('.theme-icon-moon').forEach(el => el.classList.remove('hidden'));
+    }
+  }
+
+  setTheme(getTheme());
+
+  document.querySelectorAll('.theme-toggle').forEach(btn => {
+    btn.addEventListener('click', () => {
+      setTheme(getTheme() === 'dark' ? 'light' : 'dark');
+    });
+  });
+</script>
