@@ -3,6 +3,8 @@ import contenedoresNimacOptiwork  from "../assets/c4/nimacOptiwork/container-Nim
 import nimacOptiwork from "../assets/NimacOptiwork.png"
 import componentNimacOptiwork from "../assets/c4/nimacOptiwork/component-NimacOptiworkcomponent.svg"
 
+import devhubs from "../assets/devshub.png"
+
 export interface Diagram {
   title: string;
   description: string;
@@ -27,6 +29,31 @@ export interface Project {
 }
 
 export const projects: Project[] = [
+  {
+    slug: "social",
+    title: "Devshub Community",
+    shortDescription: "Comunidad de desarrolladores para compartir posts, discusiones, hackatones y retos.",
+    fullDescription: "Devshub es una comunidad de desarrolladores donde puedes compartir y publicar posts, participar en discusiones, organizar hackatones, retos y más. Un espacio para conectar con otros desarrolladores, aprender y crecer profesionalmente.",
+    tags: ["Next.js", "NestJS", "TypeScript", "PostgreSQL", "Docker", "AWS"],
+    image: devhubs.src,
+    gallery: [
+      "",
+      "",
+    ],
+    diagrams: [],
+    visibility: "public",
+    liveUrl: "https://www.devshub.dev/es",
+    repoUrl: "",
+    features: [
+      "Clean Architecture con NestJS",
+      "Arquitectura desacoplada entre frontend y backend",
+      "Creación de posts, discusiones, hackatones y retos",
+      "Sistema de autenticación y autorización",
+      "OAuth con GitHub",
+    ],
+    year: "2026",
+    role: "Full Stack Developer",
+  },
   {
     slug: "gestion",
     title: "Nimac Optiwork",
@@ -56,7 +83,7 @@ export const projects: Project[] = [
       },
     ],
     visibility: "private",
-    liveUrl: "https://github.com/ed031104/NimacOptiWork.git",
+    liveUrl: "",
     repoUrl: "",
     features: [
       "Arquitectura DDD desacoplada",
@@ -67,7 +94,6 @@ export const projects: Project[] = [
     year: "2025",
     role: "Software Developer",
   },
-
 ];
 
 export function getProject(slug: string): Project | undefined {
