@@ -1,0 +1,162 @@
+---
+
+---
+
+<section
+  id="contacto"
+  class="px-6 sm:px-8 lg:px-12 py-24 sm:py-32 bg-primary/5 border-t border-primary/20 text-center"
+>
+  <div class="scroll-animate">
+    <h2
+      class="font-headings text-3xl sm:text-4xl mb-6 text-foreground"
+      data-i18n="cta.title"
+    >
+      ¿Empezamos un proyecto?
+    </h2>
+    <p
+      class="text-muted-foreground max-w-xl mx-auto mb-10"
+      data-i18n="cta.subtitle"
+    >
+      Actualmente estoy abierto a nuevas oportunidades. Ya sea que tengas una
+      pregunta o simplemente quieras saludar, ¡intentaré responderte lo antes
+      posible!
+    </p>
+    <form class="max-w-lg mx-auto text-left w-full scroll-animate">
+      <div class="mb-4">
+        <label
+          for="name"
+          class="block text-sm font-mono text-muted-foreground mb-1.5"
+          >Nombre</label
+        >
+        <input
+          type="text"
+          id="name"
+          name="name"
+          required
+          class="w-full px-4 py-2.5 bg-secondary border border-border/50 rounded-lg text-foreground text-sm font-mono outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/30 transition-colors placeholder:text-muted-foreground/50"
+          placeholder="Tu nombre"
+        />
+      </div>
+      <div class="mb-4">
+        <label
+          for="email"
+          class="block text-sm font-mono text-muted-foreground mb-1.5"
+          >Email</label
+        >
+        <input
+          type="email"
+          id="email"
+          name="email"
+          required
+          class="w-full px-4 py-2.5 bg-secondary border border-border/50 rounded-lg text-foreground text-sm font-mono outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/30 transition-colors placeholder:text-muted-foreground/50"
+          placeholder="tu@email.com"
+        />
+      </div>
+      <div class="mb-6">
+        <label
+          for="message"
+          class="block text-sm font-mono text-muted-foreground mb-1.5"
+          >Mensaje</label
+        >
+        <textarea
+          id="message"
+          name="message"
+          required
+          rows="4"
+          class="w-full px-4 py-2.5 bg-secondary border border-border/50 rounded-lg text-foreground text-sm font-mono outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/30 transition-colors placeholder:text-muted-foreground/50 resize-none"
+          placeholder="Escribe tu mensaje..."></textarea>
+      </div>
+      <button
+        type="submit"
+        class="w-full inline-flex items-center justify-center px-6 py-3 font-headings rounded-md gap-2 font-medium bg-primary text-primary-foreground shadow-[0_0_15px_rgba(168,85,247,0.5)] hover:bg-[#c084fc] transition-colors cursor-pointer"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="18"
+          height="18"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          ><rect width="20" height="16" x="2" y="4" rx="2"></rect><path
+            d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg
+        >
+        <span data-i18n="cta.sendMessage">Envíame un mensaje</span>
+      </button>
+    </form>
+  </div>
+</section>
+
+<script>
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("animate-in");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.05 },
+  );
+
+  document.querySelectorAll(".scroll-animate").forEach((el) => {
+    observer.observe(el);
+  });
+
+  document
+    .querySelector("#contacto form")
+    ?.addEventListener("submit", async function (e) {
+      e.preventDefault();
+      var btn = this.querySelector('button[type="submit"]');
+      var span = btn.querySelector("span");
+      var originalText = span?.textContent || "Enviar";
+      var form: HTMLFormElement = e.target as HTMLFormElement;
+      var data = new FormData(form);
+
+      btn.disabled = true;
+      span.textContent = "Enviando...";
+
+      try {
+        var res = await fetch("/api/mail", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            name: data.get("name"),
+            email: data.get("email"),
+            message: data.get("message"),
+          }),
+        });
+        if (res.ok) {
+          span.textContent = "Enviado ✓";
+          form.reset();
+        } else {
+          span.textContent = "Error";
+        }
+      } catch {
+        span.textContent = "Error";
+      }
+
+      setTimeout(function () {
+        btn.disabled = false;
+        span.textContent = originalText;
+      }, 3000);
+    });
+</script>
+
+<style>
+  .scroll-animate {
+    opacity: 0;
+    transform: translateY(15px);
+    transition:
+      opacity 0.35s ease-out,
+      transform 0.35s ease-out;
+  }
+
+  .scroll-animate.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>

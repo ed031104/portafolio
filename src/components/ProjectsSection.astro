@@ -1,0 +1,224 @@
+---
+import { projects } from "../data/projects";
+import ProjectDetailModal from "./ProjectDetailModal.astro";
+---
+
+<section
+  id="proyectos"
+  class="px-6 sm:px-8 lg:px-12 py-24 sm:py-32 max-w-7xl mx-auto"
+>
+  <div class="mb-12 sm:mb-16">
+    <h2
+      class="font-headings text-3xl sm:text-4xl mb-4 text-foreground scroll-animate"
+      data-i18n="projects.title"
+    >
+      Proyectos Destacados
+    </h2>
+    <p class="text-muted-foreground scroll-animate" data-i18n="projects.subtitle">
+      Una selección de mis trabajos más recientes.
+    </p>
+  </div>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    {
+      projects.map((project) => (
+        <article class="scroll-animate flex flex-col rounded-xl overflow-hidden bg-secondary border border-border group hover:border-[#a855f7] transition-colors cursor-pointer">
+          <div class="h-48 w-full relative overflow-hidden">
+            <img
+              src={project.image}
+              alt={project.title}
+              class="w-full h-full object-cover opacity-80 mix-blend-luminosity group-hover:opacity-100 group-hover:mix-blend-normal transition-all duration-700"
+              loading="lazy"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-secondary to-transparent" />
+            {project.visibility === "private" && (
+              <div class="absolute top-3 right-3 flex items-center gap-1 px-2 py-1 bg-muted/80 backdrop-blur-sm rounded-sm border border-border/50 text-xs font-mono text-muted-foreground">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="12"
+                  height="12"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect width="18" height="11" x="3" y="11" rx="2" ry="2" />
+                  <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                </svg>
+                <span data-i18n="projects.private">Privado</span>
+              </div>
+            )}
+          </div>
+          <div class="p-6 flex flex-col flex-grow">
+            <div class="flex items-center gap-2 mb-2">
+              <h3 class="font-headings text-xl text-foreground">
+                {project.title}
+              </h3>
+              {project.visibility === "public" ? (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="text-muted-foreground shrink-0"
+                >
+                  <circle cx="12" cy="12" r="10" />
+                  <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
+                  <path d="M2 12h20" />
+                </svg>
+              ) : (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="text-muted-foreground shrink-0"
+                >
+                  <path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5" />
+                </svg>
+              )}
+            </div>
+            <p class="text-muted-foreground text-sm mb-4 flex-grow" data-i18n={"project." + project.slug + ".shortDesc"}>
+              {project.shortDescription}
+            </p>
+            <div class="flex flex-wrap gap-2 mb-6">
+              {project.tags.slice(0, 3).map((tag) => (
+                <span class="text-xs font-mono px-2 py-1 bg-muted text-primary rounded-sm border border-primary/20">
+                  {tag}
+                </span>
+              ))}
+              {project.tags.length > 3 && (
+                <span class="text-xs font-mono px-2 py-1 bg-muted text-muted-foreground rounded-sm border border-border/50">
+                  +{project.tags.length - 3}
+                </span>
+              )}
+            </div>
+            <div class="flex gap-3 mt-auto">
+              <button
+                class="project-detail-btn inline-flex items-center justify-center px-4 py-2 font-headings rounded-md gap-2 font-medium bg-primary text-primary-foreground shadow-[0_0_15px_rgba(168,85,247,0.5)] hover:bg-[#c084fc] transition-colors text-sm"
+                data-slug={project.slug}
+                type="button"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <>
+                    <circle cx="11" cy="11" r="8" />
+                    <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                  </>
+                </svg>
+                <span data-i18n="projects.viewDetails">Ver Detalles</span>
+              </button>
+              {project.visibility === "public" && (
+                <a
+                  href={project.liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-flex items-center justify-center px-4 py-2 font-headings rounded-md gap-2 font-medium bg-secondary text-secondary-foreground border border-primary/30 hover:border-[#a855f7] hover:text-[#a855f7] transition-colors text-sm"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                    <polyline points="15 3 21 3 21 9" />
+                    <line x1="10" x2="21" y1="14" y2="3" />
+                  </svg>
+                  <span data-i18n="projects.demo">Demo</span>
+                </a>
+              )}
+            </div>
+          </div>
+        </article>
+      ))
+    }
+  </div>
+</section>
+
+{projects.map((project) => <ProjectDetailModal project={project} />)}
+
+<script>
+  document.querySelectorAll(".project-detail-btn").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var slug = btn.getAttribute("data-slug");
+      var modals = document.querySelectorAll(".project-modal");
+      modals.forEach(function (m) {
+        if (m.getAttribute("data-slug") === slug) {
+          m.classList.remove("hidden");
+          m.classList.add("flex");
+          document.body.style.overflow = "hidden";
+        }
+      });
+    });
+  });
+
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") {
+      var visibleModal = document.querySelector(".project-modal.flex");
+      if (visibleModal) {
+        visibleModal.classList.add("hidden");
+        visibleModal.classList.remove("flex");
+        if (!document.querySelector(".project-modal.flex")) {
+          document.body.style.overflow = "";
+        }
+      }
+    }
+  });
+</script>
+
+<script>
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("animate-in");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.05 },
+  );
+  document.querySelectorAll(".scroll-animate").forEach((el) => {
+    observer.observe(el);
+  });
+</script>
+
+<style>
+  .scroll-animate {
+    opacity: 0;
+    transform: translateY(15px);
+    transition:
+      opacity 0.35s ease-out,
+      transform 0.35s ease-out;
+  }
+  .scroll-animate.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>

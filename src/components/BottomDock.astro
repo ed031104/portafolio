@@ -1,0 +1,211 @@
+---
+import { Icon } from "astro-icon/components";
+
+interface Language {
+  code: string;
+  label: string;
+}
+
+const languages: Language[] = [
+  { code: 'es', label: 'ES' },
+  { code: 'en', label: 'EN' },
+];
+
+const navItems = [
+  { href: '#inicio', label: 'Inicio', icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M4 19v-9q0-.475.213-.9t.587-.7l6-4.5q.525-.4 1.2-.4t1.2.4l6 4.5q.375.275.588.7T20 10v9q0 .825-.588 1.413T18 21h-3q-.425 0-.712-.288T14 20v-5q0-.425-.288-.712T13 14h-2q-.425 0-.712.288T10 15v5q0 .425-.288.713T9 21H6q-.825 0-1.412-.587T4 19"/></svg>'},
+  { href: '#sobre-mi', label: 'Sobre mí', icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a5 5 0 1 1-5 5l.005-.217A5 5 0 0 1 12 2m2 12a5 5 0 0 1 5 5v1a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-1a5 5 0 0 1 5-5z"/></svg>' },
+  { href: '#tecnologias', label: 'Tecnologías', icon: '<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><path d="m16 2l12.12 7v14L16 30L3.88 23V9z"/><path stroke="#fff" stroke-width="2.71" d="m16 6.97l7.82 4.51v9.04L16 25.03l-7.82-4.51v-9.04z"/></svg>' },
+  { href: '#experiencia', label: 'Experiencia', icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M4 21q-.825 0-1.412-.587T2 19V8q0-.825.588-1.412T4 6h4V4q0-.825.588-1.412T10 2h4q.825 0 1.413.588T16 4v2h4q.825 0 1.413.588T22 8v11q0 .825-.587 1.413T20 21zm6-15h4V4h-4z"/></svg>' },
+  { href: '#proyectos', label: 'Proyectos', icon: '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill="currentColor" d="M4.75 7a.75.75 0 0 0 0 1.5h4.5a.75.75 0 0 0 0-1.5zM5 4.75A.75.75 0 0 1 5.75 4h5.5a.75.75 0 0 1 0 1.5h-5.5A.75.75 0 0 1 5 4.75M6.75 10a.75.75 0 0 0 0 1.5h4.5a.75.75 0 0 0 0-1.5z"/><path fill="currentColor" d="M0 1.75C0 .784.784 0 1.75 0h12.5C15.216 0 16 .784 16 1.75v12.5A1.75 1.75 0 0 1 14.25 16H1.75A1.75 1.75 0 0 1 0 14.25Zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25V1.75a.25.25 0 0 0-.25-.25Z"/></svg>' },
+  { href: '#contacto', label: 'Contacto', icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M6 17c0-2 4-3.1 6-3.1s6 1.1 6 3.1v1H6m9-9a3 3 0 0 1-3 3a3 3 0 0 1-3-3a3 3 0 0 1 3-3a3 3 0 0 1 3 3M3 5v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2"/></svg>' },
+];
+
+const { currentLang = 'es' } = Astro.props;
+---
+
+<div
+  id="bottom-dock"
+  class="xl:hidden fixed bottom-4 left-1/2 -translate-x-1/2 z-50 flex items-center gap-1 px-2 sm:px-4 py-1.5 sm:py-3 bg-background/70 backdrop-blur-xl border border-border/50 rounded-full shadow-lg max-w-[calc(100vw-24px)]"
+>
+  <div class="overflow-x-auto scrollbar-hide">
+    <div class="flex items-center gap-px sm:gap-1 shrink-0">
+      {navItems.map((item) => (
+        <a
+          href={item.href}
+          class="dock-link inline-flex items-center justify-center size-10 sm:w-9 sm:h-9 rounded-full text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-all duration-300"
+          title={item.label}
+        >
+          <div set:html={item.icon}/>
+        </a>
+      ))}
+    </div>
+  </div>
+
+  <div class="relative settings-group">
+    <button
+      class="settings-toggle inline-flex items-center justify-center size-10 sm:w-10 sm:h-10 rounded-full text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-all duration-300"
+      aria-label="Configuración"
+      type="button"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="20"
+        height="20"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="size-4 sm:size-5"
+      >
+        <circle cx="12" cy="12" r="3"></circle>
+        <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+      </svg>
+    </button>
+
+    <div
+      class="settings-popover absolute bottom-full mb-2 left-1/2 z-10 flex items-center gap-1 px-3 py-2 bg-background/70 backdrop-blur-xl border border-border/50 rounded-full shadow-lg opacity-0 pointer-events-none transition-all duration-200"
+    >
+      <button
+        class="theme-toggle inline-flex items-center justify-center size-8 sm:w-9 sm:h-9 rounded-full text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-all duration-300 shrink-0"
+        aria-label="Cambiar tema"
+        type="button"
+      >
+        <svg
+          class="theme-icon-sun hidden size-3 sm:size-4"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <circle cx="12" cy="12" r="4"></circle>
+          <path d="M12 2v2"></path>
+          <path d="M12 20v2"></path>
+          <path d="m4.93 4.93 1.41 1.41"></path>
+          <path d="m17.66 17.66 1.41 1.41"></path>
+          <path d="M2 12h2"></path>
+          <path d="M20 12h2"></path>
+          <path d="m6.34 17.66-1.41 1.41"></path>
+          <path d="m19.07 4.93-1.41 1.41"></path>
+        </svg>
+        <svg
+          class="theme-icon-moon size-3 sm:size-4"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+      </button>
+
+      <span class="w-px h-6 bg-border/50 shrink-0"></span>
+
+      <div class="relative flex items-center lang-switch-wrapper" style="gap: 2px;">
+        <div class="lang-indicator absolute top-1/2 -translate-y-1/2 w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-primary/20 transition-all duration-300 ease-out pointer-events-none z-0"></div>
+        {languages.map((lang) => (
+          <button
+            class="lang-btn inline-flex items-center justify-center w-7 h-7 sm:w-8 sm:h-8 rounded-full text-[11px] sm:text-xs font-mono leading-none shrink-0 relative z-10 transition-colors duration-300"
+            class:list={[
+              lang.code === currentLang
+                ? 'text-primary font-bold'
+                : 'text-muted-foreground hover:text-foreground'
+            ]}
+            data-lang={lang.code}
+            type="button"
+          >
+            {lang.label}
+          </button>
+        ))}
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.querySelectorAll('.dock-link').forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const href = (link as HTMLAnchorElement).getAttribute('href');
+      if (href) {
+        const target = document.querySelector(href);
+        target?.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  });
+
+  const sections = document.querySelectorAll('section[id]');
+  const links = document.querySelectorAll('.dock-link');
+
+  function updateActiveLink() {
+    let current = '';
+    sections.forEach(section => {
+      const top = (section as HTMLElement).offsetTop - 200;
+      if (window.scrollY >= top) {
+        current = (section as HTMLElement).getAttribute('id') || '';
+      }
+    });
+
+    links.forEach(link => {
+      const href = (link as HTMLAnchorElement).getAttribute('href');
+      if (href === `#${current}`) {
+        link.classList.add('text-primary');
+        link.classList.remove('text-muted-foreground');
+      } else {
+        link.classList.remove('text-primary');
+        link.classList.add('text-muted-foreground');
+      }
+    });
+  }
+
+  window.addEventListener('scroll', updateActiveLink);
+  updateActiveLink();
+
+  var settingsGroup = document.querySelector('.settings-group');
+  var settingsToggle = document.querySelector('.settings-toggle');
+
+
+  if (settingsToggle && settingsGroup) {
+    settingsToggle.addEventListener('click', function (e) {
+      e.stopPropagation();
+      settingsGroup?.classList.toggle('is-open');
+      if (settingsGroup.classList.contains('is-open') && typeof window.positionLangIndicator === 'function') {
+        requestAnimationFrame(window.positionLangIndicator);
+      }
+    });
+
+    document.addEventListener('click', function (e) {
+      if (settingsGroup && !settingsGroup.contains(e.target as Node)) {
+        settingsGroup.classList.remove('is-open');
+      }
+    });
+  }
+
+</script>
+
+<style>
+  .scrollbar-hide::-webkit-scrollbar { display: none; }
+  .scrollbar-hide { scrollbar-width: none; -ms-overflow-style: none; }
+
+  #bottom-dock {
+    overscroll-behavior: contain;
+  }
+.settings-group.is-open .settings-popover {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(-50%) scale(1);
+}
+
+.settings-popover {
+  transform: translateX(-50%) scale(0.95);
+}
+
+  
+</style>

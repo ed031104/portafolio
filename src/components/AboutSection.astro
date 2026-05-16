@@ -1,0 +1,67 @@
+---
+---
+
+<section id="sobre-mi" class="px-6 sm:px-8 lg:px-12 py-20 sm:py-24 bg-muted/30 border-y border-border/50">
+  <div class="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+    <div class="scroll-animate">
+      <h2 class="font-headings text-3xl sm:text-4xl mb-6 text-foreground" data-i18n="about.title">
+        &lt;Sobre Mi /&gt;
+      </h2>
+      <p class="text-muted-foreground leading-relaxed mb-4" data-i18n="about.p1">
+        Con más de 3 años de experiencia en la industria tecnológica, me he especializado en el desarrollo backend y frontend, participando en proyectos empresariales y freelance. Mi enfoque está en construir soluciones escalables, seguras y mantenibles, alineadas con las necesidades del negocio y las mejores prácticas de ingeniería de software.
+      </p>
+      <p class="text-muted-foreground leading-relaxed" data-i18n="about.p2">
+        Además, mantengo una formación constante en nuevas tecnologías, metodologías y herramientas del sector, con el objetivo de aportar soluciones innovadoras y eficientes. Considero que el desarrollo de software de calidad requiere no solo excelencia técnica, sino también una visión centrada en la experiencia del usuario y en la generación de valor real para cada proyecto.
+      </p>
+    </div>
+    <div class="scroll-animate grid grid-cols-2 gap-4">
+      <div class="bg-secondary p-6 rounded-xl border border-border flex flex-col items-center justify-center text-center">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary mb-3"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+        <span class="font-mono text-sm">Frontend</span>
+      </div>
+      <div class="bg-secondary p-6 rounded-xl border border-border flex flex-col items-center justify-center text-center">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary mb-3"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+        <span class="font-mono text-sm">Backend</span>
+      </div>
+      <div class="bg-secondary p-6 rounded-xl border border-border flex flex-col items-center justify-center text-center">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary mb-3"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
+        <span class="font-mono text-sm">UI/UX</span>
+      </div>
+      <!-- <div class="bg-secondary p-6 rounded-xl border border-border flex flex-col items-center justify-center text-center">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary mb-3"><rect width="16" height="16" x="2" y="4" rx="2"></rect><path d="M9 9h6v6H9z"></path><path d="M15 2v4"></path><path d="M9 2v4"></path><path d="M12 2v4"></path></svg>
+        <span class="font-mono text-sm">DevOps</span>
+      </div> -->
+    </div>
+  </div>
+</section>
+
+<script>
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-in');
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.05 }
+  );
+
+  document.querySelectorAll('.scroll-animate').forEach((el) => {
+    observer.observe(el);
+  });
+</script>
+
+<style>
+  .scroll-animate {
+    opacity: 0;
+    transform: translateY(15px);
+    transition: opacity 0.35s ease-out, transform 0.35s ease-out;
+  }
+
+  .scroll-animate.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
