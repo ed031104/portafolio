@@ -1,0 +1,40 @@
+import { readFileSync } from "fs";
+import path from "path";
+import { fileURLToPath } from "url";
+import nodemailer from "nodemailer";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const templatePath = path.resolve(__dirname, "../assets/TemplateEmail.html");
+
+const transporter = nodemailer.createTransport({
+  host: import.meta.env.host,
+  port: Number(import.meta.env.port),
+  secure: import.meta.env.secure === "true",
+  auth: {
+    user: import.meta.env.user,
+    pass: import.meta.env.password,
+  },
+});
+
+export async function sendEmail(
+  contact: string,
+  email: string,
+  message: string,
+) {
+  try {
+    const template = readFileSync(templatePath, "utf8")
+      .replace("@contact", contact)
+      .replace("@emailcontact", email)
+      .replace("@message", message);
+
+    await transporter.sendMail({
+      from: import.meta.env.user ?? "",
+      to: import.meta.env.to ?? "",
+      subject: "Nuevo contacto de Portfolio",
+      html: template,
+    });
+  } catch (error) {
+    throw new Error("Failed to send email");
+  }
+}
