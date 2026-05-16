@@ -1,5 +1,5 @@
-import { c as createComponent } from './astro-component_C6QqniWX.mjs';
-import { l as createRenderInstruction, s as maybeRenderHead, k as addAttribute, B as unescapeHTML, w as renderTemplate, u as renderHead, v as renderSlot, t as renderComponent, n as generateCspDigest, x as spreadAttributes, d as Fragment } from './entrypoint_tfY2gqi8.mjs';
+import { c as createComponent } from './astro-component_B4tS_Izm.mjs';
+import { l as createRenderInstruction, s as maybeRenderHead, k as addAttribute, B as unescapeHTML, w as renderTemplate, u as renderHead, v as renderSlot, t as renderComponent, n as generateCspDigest, x as spreadAttributes, d as Fragment } from './entrypoint_Pxt6L860.mjs';
 
 async function renderScript(result, id) {
   const inlined = result.inlinedScripts.get(id);
@@ -418,6 +418,7 @@ const $$Footer = createComponent(($$result, $$props, $$slots) => {
   return renderTemplate`${maybeRenderHead()}<footer class="py-8 text-center text-muted-foreground text-sm border-t border-border"> <p> <span data-i18n="footer.text">© 2024 DevPortfolio. Diseñado y construido con</span> <span class="text-primary">♥</span> </p> </footer>`;
 }, "/home/edwin/Documentos/afraid-asteroid/src/components/Footer.astro", void 0);
 
+const prerender = false;
 const $$Index = createComponent(($$result, $$props, $$slots) => {
   return renderTemplate`${renderComponent($$result, "Layout", $$Layout, { "title": "DevPortfolio - Desarrollador Full-Stack" }, { "default": ($$result2) => renderTemplate` ${renderComponent($$result2, "Navbar", $$Navbar, {})} ${maybeRenderHead()}<main> ${renderComponent($$result2, "HeroSection", $$HeroSection, {})} ${renderComponent($$result2, "AboutSection", $$AboutSection, {})} ${renderComponent($$result2, "TechnologiesSection", $$TechnologiesSection, {})} ${renderComponent($$result2, "ExperienceSection", $$ExperienceSection, {})} ${renderComponent($$result2, "ProjectsSection", $$ProjectsSection, {})} ${renderComponent($$result2, "CTASection", $$CTASection, {})} </main> ${renderComponent($$result2, "Footer", $$Footer, {})} ` })}`;
 }, "/home/edwin/Documentos/afraid-asteroid/src/pages/index.astro", void 0);
@@ -429,6 +430,7 @@ const _page = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
   __proto__: null,
   default: $$Index,
   file: $$file,
+  prerender,
   url: $$url
 }, Symbol.toStringTag, { value: 'Module' }));
 
