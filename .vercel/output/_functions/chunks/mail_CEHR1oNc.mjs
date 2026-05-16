@@ -17,13 +17,17 @@ const transporter = nodemailer.createTransport({
 });
 async function sendEmail(contact, email, message) {
   try {
+    console.log("Sending email with the following details:");
     const template = readFileSync(templatePath, "utf8").replace("@contact", contact).replace("@emailcontact", email).replace("@message", message);
+    console.log("Email template generated successfully.");
+    console.log("Email details:", { contact, email, message });
     await transporter.sendMail({
       from: "edwin.noviembre.0306@gmail.com",
       to: "edwindavila031104@gmail.com",
       subject: "Nuevo contacto de Portfolio",
       html: template
     });
+    console.log("Email sent successfully.");
   } catch (error) {
     throw new Error("Failed to send email");
   }

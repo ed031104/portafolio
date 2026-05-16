@@ -23,18 +23,23 @@ export async function sendEmail(
   message: string,
 ) {
   try {
+    console.log("Sending email with the following details:");
     const template = readFileSync(templatePath, "utf8")
       .replace("@contact", contact)
       .replace("@emailcontact", email)
       .replace("@message", message);
 
+    console.log("Email template generated successfully.");
+    console.log("Email details:", { contact, email, message });
     await transporter.sendMail({
       from: import.meta.env.user ?? process.env.user,
       to: import.meta.env.to ?? process.env.to,
       subject: "Nuevo contacto de Portfolio",
       html: template,
     });
+    console.log("Email sent successfully.");
   } catch (error) {
     throw new Error("Failed to send email");
+    console.error("Error sending email:", error);
   }
 }

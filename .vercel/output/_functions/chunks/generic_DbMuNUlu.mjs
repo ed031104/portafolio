@@ -1,5 +1,5 @@
-import { y as typeHandlers, z as types, A as AstroError, N as NoImageMetadata, p as isRemoteAllowed, F as FailedToFetchRemoteImageDimensions, R as RemoteImageNotAllowed, r as joinPaths, E as ExpectedImage, q as isRemotePath, L as LocalImageUsedWrongly, h as MissingImageDimension, j as UnsupportedImageFormat, e as IncompatibleDescriptorOptions, U as UnsupportedImageConversion, g as InvalidImageService, a as ExpectedImageOptions, b as ExpectedNotESMImage, I as ImageMissingAlt, s as maybeRenderHead, k as addAttribute, x as spreadAttributes, w as renderTemplate, c as FontFamilyNotFound, B as unescapeHTML, M as MissingGetFontFileRequestUrl } from './entrypoint_C7Z-SJ3v.mjs';
-import { c as createComponent } from './astro-component_Csmm7cyt.mjs';
+import { y as typeHandlers, z as types, A as AstroError, N as NoImageMetadata, p as isRemoteAllowed, F as FailedToFetchRemoteImageDimensions, R as RemoteImageNotAllowed, r as joinPaths, E as ExpectedImage, q as isRemotePath, L as LocalImageUsedWrongly, h as MissingImageDimension, j as UnsupportedImageFormat, e as IncompatibleDescriptorOptions, U as UnsupportedImageConversion, g as InvalidImageService, a as ExpectedImageOptions, b as ExpectedNotESMImage, I as ImageMissingAlt, s as maybeRenderHead, k as addAttribute, x as spreadAttributes, w as renderTemplate, c as FontFamilyNotFound, B as unescapeHTML, M as MissingGetFontFileRequestUrl } from './entrypoint_tfY2gqi8.mjs';
+import { c as createComponent } from './astro-component_C6QqniWX.mjs';
 
 function isESMImportedImage(src) {
   return typeof src === "object" || typeof src === "function" && "src" in src;
@@ -588,7 +588,7 @@ async function getConfiguredImageService() {
   if (!globalThis?.astroAsset?.imageService) {
     const { default: service } = await import(
       // @ts-expect-error
-      './sharp_BPT8J6h5.mjs'
+      './sharp_CCckXifB.mjs'
     ).catch((e) => {
       const error = new AstroError(InvalidImageService);
       error.cause = e;
@@ -802,7 +802,7 @@ const $$Image = createComponent(async ($$result, $$props, $$slots) => {
   }
   const { class: className, ...attributes } = { ...additionalAttributes, ...image.attributes };
   return renderTemplate`${maybeRenderHead()}<img${addAttribute(image.src, "src")}${spreadAttributes(attributes)}${addAttribute(className, "class")}>`;
-}, "/home/edwin/Documentos/afraid-asteroid/node_modules/.pnpm/astro@6.3.3_@types+node@25.8.0_@vercel+functions@3.5.1_jiti@2.7.0_lightningcss@1.32.0_rollup@4.60.4/node_modules/astro/components/Image.astro", void 0);
+}, "/home/edwin/Documentos/afraid-asteroid/node_modules/.pnpm/astro@6.3.3_@types+node@25.8.0_@vercel+functions@3.6.0_jiti@2.7.0_lightningcss@1.32.0_rollup@4.60.4/node_modules/astro/components/Image.astro", void 0);
 
 const mimes = {
   "3g2": "video/3gpp2",
@@ -1326,7 +1326,7 @@ const $$Picture = createComponent(async ($$result, $$props, $$slots) => {
     const srcsetAttribute = props.densities || !props.densities && !props.widths && !useResponsive ? `${image.src}${image.srcSet.values.length > 0 ? ", " + image.srcSet.attribute : ""}` : image.srcSet.attribute;
     return renderTemplate`<source${addAttribute(srcsetAttribute, "srcset")}${addAttribute(lookup(image.options.format ?? image.src) ?? `image/${image.options.format}`, "type")}${spreadAttributes(sourceAdditionalAttributes)}>`;
   })}  <img${addAttribute(fallbackImage.src, "src")}${spreadAttributes(attributes)}${addAttribute(className, "class")}> </picture>`;
-}, "/home/edwin/Documentos/afraid-asteroid/node_modules/.pnpm/astro@6.3.3_@types+node@25.8.0_@vercel+functions@3.5.1_jiti@2.7.0_lightningcss@1.32.0_rollup@4.60.4/node_modules/astro/components/Picture.astro", void 0);
+}, "/home/edwin/Documentos/afraid-asteroid/node_modules/.pnpm/astro@6.3.3_@types+node@25.8.0_@vercel+functions@3.6.0_jiti@2.7.0_lightningcss@1.32.0_rollup@4.60.4/node_modules/astro/components/Picture.astro", void 0);
 
 const componentDataByCssVariable = new Map([]);
 
@@ -1378,7 +1378,7 @@ const $$Font = createComponent(($$result, $$props, $$slots) => {
   }
   const filteredPreloadData = filterPreloads(data.preloads, preload);
   return renderTemplate`<style>${unescapeHTML(data.css)}</style>${filteredPreloadData?.map(({ url, type }) => renderTemplate`<link rel="preload"${addAttribute(url, "href")} as="font"${addAttribute(`font/${type}`, "type")} crossorigin>`)}`;
-}, "/home/edwin/Documentos/afraid-asteroid/node_modules/.pnpm/astro@6.3.3_@types+node@25.8.0_@vercel+functions@3.5.1_jiti@2.7.0_lightningcss@1.32.0_rollup@4.60.4/node_modules/astro/components/Font.astro", void 0);
+}, "/home/edwin/Documentos/afraid-asteroid/node_modules/.pnpm/astro@6.3.3_@types+node@25.8.0_@vercel+functions@3.6.0_jiti@2.7.0_lightningcss@1.32.0_rollup@4.60.4/node_modules/astro/components/Font.astro", void 0);
 
 class SsrRuntimeFontFileUrlResolver {
   #urls;
