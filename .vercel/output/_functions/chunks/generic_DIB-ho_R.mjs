@@ -1,5 +1,5 @@
-import { y as typeHandlers, z as types, A as AstroError, N as NoImageMetadata, p as isRemoteAllowed, F as FailedToFetchRemoteImageDimensions, R as RemoteImageNotAllowed, r as joinPaths, E as ExpectedImage, q as isRemotePath, L as LocalImageUsedWrongly, h as MissingImageDimension, j as UnsupportedImageFormat, e as IncompatibleDescriptorOptions, U as UnsupportedImageConversion, g as InvalidImageService, a as ExpectedImageOptions, b as ExpectedNotESMImage, I as ImageMissingAlt, s as maybeRenderHead, k as addAttribute, x as spreadAttributes, w as renderTemplate, c as FontFamilyNotFound, B as unescapeHTML, M as MissingGetFontFileRequestUrl } from './entrypoint_vAvF21q4.mjs';
-import { c as createComponent } from './astro-component_YZ3CueRJ.mjs';
+import { y as typeHandlers, z as types, A as AstroError, N as NoImageMetadata, p as isRemoteAllowed, F as FailedToFetchRemoteImageDimensions, R as RemoteImageNotAllowed, r as joinPaths, E as ExpectedImage, q as isRemotePath, L as LocalImageUsedWrongly, h as MissingImageDimension, j as UnsupportedImageFormat, e as IncompatibleDescriptorOptions, U as UnsupportedImageConversion, g as InvalidImageService, a as ExpectedImageOptions, b as ExpectedNotESMImage, I as ImageMissingAlt, s as maybeRenderHead, k as addAttribute, x as spreadAttributes, w as renderTemplate, c as FontFamilyNotFound, B as unescapeHTML, M as MissingGetFontFileRequestUrl } from './entrypoint_BXACiQyt.mjs';
+import { c as createComponent } from './astro-component_Dx365Q8q.mjs';
 
 function isESMImportedImage(src) {
   return typeof src === "object" || typeof src === "function" && "src" in src;
@@ -588,7 +588,7 @@ async function getConfiguredImageService() {
   if (!globalThis?.astroAsset?.imageService) {
     const { default: service } = await import(
       // @ts-expect-error
-      './sharp_B8pFJ3B5.mjs'
+      './sharp_C_Q4Eko2.mjs'
     ).catch((e) => {
       const error = new AstroError(InvalidImageService);
       error.cause = e;
