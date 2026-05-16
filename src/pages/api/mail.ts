@@ -10,6 +10,6 @@ export const POST: APIRoute = async ({ request }) => {
 
         return new Response(JSON.stringify({ success: true }), { status: 200 });
     } catch (error) {
-        return new Response(JSON.stringify({ success: false, error: "Failed to send email" }), { status: 500 });
+        return new Response(JSON.stringify({ success: false, error: "Failed to send email" + error }), { status: 500 });
     }
 };

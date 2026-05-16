@@ -28,3 +28,5 @@ pnpm-debug.log*
 
 # cursor data
 .cursor/
+.vercel
+.env*.local
