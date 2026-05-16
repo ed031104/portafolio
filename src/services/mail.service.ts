@@ -8,12 +8,12 @@ const __dirname = path.dirname(__filename);
 const templatePath = path.resolve(__dirname, "../assets/TemplateEmail.html");
 
 const transporter = nodemailer.createTransport({
-  host: import.meta.env.host,
-  port: Number(import.meta.env.port),
-  secure: import.meta.env.secure === "true",
+  host: import.meta.env.host ?? process.env.host,
+  port: Number(import.meta.env.port ?? process.env.port),
+  secure: (import.meta.env.secure ?? process.env.secure) === "true",
   auth: {
-    user: import.meta.env.user,
-    pass: import.meta.env.password,
+    user: import.meta.env.user ?? process.env.user,
+    pass: import.meta.env.password ?? process.env.password,
   },
 });
 
@@ -29,8 +29,8 @@ export async function sendEmail(
       .replace("@message", message);
 
     await transporter.sendMail({
-      from: import.meta.env.user ?? "",
-      to: import.meta.env.to ?? "",
+      from: import.meta.env.user ?? process.env.user,
+      to: import.meta.env.to ?? process.env.to,
       subject: "Nuevo contacto de Portfolio",
       html: template,
     });
