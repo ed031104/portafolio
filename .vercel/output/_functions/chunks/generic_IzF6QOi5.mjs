@@ -1,4 +1,5 @@
-import { t as typeHandlers, q as types, A as AstroError, N as NoImageMetadata, m as isRemoteAllowed, F as FailedToFetchRemoteImageDimensions, R as RemoteImageNotAllowed, e as InvalidComponentArgs, o as joinPaths, E as ExpectedImage, n as isRemotePath, L as LocalImageUsedWrongly, g as MissingImageDimension, i as UnsupportedImageFormat, d as IncompatibleDescriptorOptions, U as UnsupportedImageConversion, f as InvalidImageService, a as ExpectedImageOptions, b as ExpectedNotESMImage, I as ImageMissingAlt, p as maybeRenderHead, j as addAttribute, s as spreadAttributes, r as renderTemplate, c as FontFamilyNotFound, u as unescapeHTML, M as MissingGetFontFileRequestUrl } from './entrypoint_8P7-Q-Dm.mjs';
+import { y as typeHandlers, z as types, A as AstroError, N as NoImageMetadata, p as isRemoteAllowed, F as FailedToFetchRemoteImageDimensions, R as RemoteImageNotAllowed, r as joinPaths, E as ExpectedImage, q as isRemotePath, L as LocalImageUsedWrongly, h as MissingImageDimension, j as UnsupportedImageFormat, e as IncompatibleDescriptorOptions, U as UnsupportedImageConversion, g as InvalidImageService, a as ExpectedImageOptions, b as ExpectedNotESMImage, I as ImageMissingAlt, s as maybeRenderHead, k as addAttribute, x as spreadAttributes, w as renderTemplate, c as FontFamilyNotFound, B as unescapeHTML, M as MissingGetFontFileRequestUrl } from './entrypoint_C7Z-SJ3v.mjs';
+import { c as createComponent } from './astro-component_Csmm7cyt.mjs';
 
 function isESMImportedImage(src) {
   return typeof src === "object" || typeof src === "function" && "src" in src;
@@ -207,40 +208,6 @@ async function inferRemoteSize(url, imageConfig) {
     ...NoImageMetadata,
     message: NoImageMetadata.message(url)
   });
-}
-
-function validateArgs(args) {
-  if (args.length !== 3) return false;
-  if (!args[0] || typeof args[0] !== "object") return false;
-  return true;
-}
-function baseCreateComponent(cb, moduleId, propagation) {
-  const name = moduleId?.split("/").pop()?.replace(".astro", "") ?? "";
-  const fn = (...args) => {
-    if (!validateArgs(args)) {
-      throw new AstroError({
-        ...InvalidComponentArgs,
-        message: InvalidComponentArgs.message(name)
-      });
-    }
-    return cb(...args);
-  };
-  Object.defineProperty(fn, "name", { value: name, writable: false });
-  fn.isAstroComponentFactory = true;
-  fn.moduleId = moduleId;
-  fn.propagation = propagation;
-  return fn;
-}
-function createComponentWithOptions(opts) {
-  const cb = baseCreateComponent(opts.factory, opts.moduleId, opts.propagation);
-  return cb;
-}
-function createComponent(arg1, moduleId, propagation) {
-  if (typeof arg1 === "function") {
-    return baseCreateComponent(arg1, moduleId, propagation);
-  } else {
-    return createComponentWithOptions(arg1);
-  }
 }
 
 const VALID_SUPPORTED_FORMATS = [
@@ -621,7 +588,7 @@ async function getConfiguredImageService() {
   if (!globalThis?.astroAsset?.imageService) {
     const { default: service } = await import(
       // @ts-expect-error
-      './sharp_DNwTAPZQ.mjs'
+      './sharp_BPT8J6h5.mjs'
     ).catch((e) => {
       const error = new AstroError(InvalidImageService);
       error.cause = e;
