@@ -1,11 +1,6 @@
-import { readFileSync } from "fs";
-import path from "path";
-import { fileURLToPath } from "url";
+import template from "../assets/TemplateEmail.html?raw";
 import nodemailer from "nodemailer";
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-const templatePath = path.resolve(__dirname, "../assets/TemplateEmail.html");
 
 const transporter = nodemailer.createTransport({
   host: import.meta.env.host ?? process.env.host,
@@ -24,7 +19,7 @@ export async function sendEmail(
 ) {
   try {
     console.log("Sending email with the following details:");
-    const template = readFileSync(templatePath, "utf8")
+    const templateEmail = template
       .replace("@contact", contact)
       .replace("@emailcontact", email)
       .replace("@message", message);
@@ -35,7 +30,7 @@ export async function sendEmail(
       from: import.meta.env.user ?? process.env.user,
       to: import.meta.env.to ?? process.env.to,
       subject: "Nuevo contacto de Portfolio",
-      html: template,
+      html: templateEmail,
     });
     console.log("Email sent successfully.");
   } catch (error) {
